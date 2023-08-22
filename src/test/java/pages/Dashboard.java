@@ -23,6 +23,7 @@ public class Dashboard {
     }
 
     public void searchInput(String key, String isImage){
-
+        System.out.println("Keyword = " + key);
+        System.out.println("IsImage = " + isImage);
     }
 }
