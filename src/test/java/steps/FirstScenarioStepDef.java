@@ -1,11 +1,7 @@
 package steps;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import pages.Dashboard;
-
-import java.util.List;
-import java.util.Map;
 
 public class FirstScenarioStepDef {
     Dashboard dashboard;
