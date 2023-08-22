@@ -12,8 +12,8 @@ public class FirstScenarioStepDef {
 
     @Given("access google and search")
     public void accessGoogleAndSearch() {
-        String keywordsParam = System.getProperty("KEYWORDS_PARAM");
-        String isImageParam = System.getProperty("IS_IMAGE_PARAM");
+        String keywordsParam = System.getenv("KEYWORDS_PARAM");
+        String isImageParam = System.getenv("IS_IMAGE_PARAM");
         System.out.println("keywordsParam = " + keywordsParam);
         if (keywordsParam != null && !keywordsParam.isEmpty()) {
             String[] keywords = keywordsParam.split(",");
