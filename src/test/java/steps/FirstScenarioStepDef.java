@@ -7,7 +7,7 @@ public class FirstScenarioStepDef {
     Dashboard dashboard;
 
     public FirstScenarioStepDef(){
-        dashboard = new Dashboard();
+        dashboard = new Dashboard(false);
     }
 
     @Given("access google and search")

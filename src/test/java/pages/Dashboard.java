@@ -5,21 +5,23 @@ import com.microsoft.playwright.*;
 import java.io.IOException;
 
 public class Dashboard {
-    private Playwright playwright;
-    private Browser browser;
-    private BrowserContext context;
-    private Page page;
+    private final Browser browser;
 
-    public void navigateTo(String url){
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        context = browser.newContext();
-        page = context.newPage();
-        page.navigate(url);
+    public Dashboard(boolean isHeadless) {
+        Playwright playwright = Playwright.create();
+        BrowserType browserType = playwright.chromium();
+
+        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
+        launchOptions.setHeadless(isHeadless);
+
+        browser = browserType.launch(launchOptions);
     }
 
-    public void sayHello(){
-        System.out.println("Hello");
+    public Page navigateTo(String url) {
+        BrowserContext context = browser.newContext();
+        Page page = context.newPage();
+        page.navigate(url);
+        return page;
     }
 
     public void searchInput(String key, String isImage){
