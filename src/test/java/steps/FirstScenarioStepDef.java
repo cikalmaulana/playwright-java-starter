@@ -22,6 +22,7 @@ public class FirstScenarioStepDef {
             String isImage = searchData.get("isImage");
 
             String keywordsParam = System.getProperty("KEYWORDS_PARAM");
+            System.out.println("keywordsParam = " + keywordsParam);
             if (keywordsParam != null && !keywordsParam.isEmpty()) {
                 String[] keywords = keywordsParam.split(",");
                 for (String key : keywords) {
