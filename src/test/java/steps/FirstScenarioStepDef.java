@@ -1,3 +1,5 @@
+package steps;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import pages.Dashboard;
@@ -13,7 +15,7 @@ public class FirstScenarioStepDef {
     }
 
     @Given("^access google and search:$")
-    public void accessGoogle(DataTable param) {
+    public void accessGoogleAndSearch(DataTable param) {
         List<Map<String,String>> data = param.asMaps(String.class, String.class);
         for(Map<String,String> searchData : data){
             String keyword = searchData.get("keywords");
