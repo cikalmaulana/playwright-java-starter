@@ -21,4 +21,8 @@ public class Dashboard {
     public void sayHello(){
         System.out.println("Hello");
     }
+
+    public void searchInput(String key, String isImage){
+
+    }
 }
