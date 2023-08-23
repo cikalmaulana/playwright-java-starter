@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         glue = "steps",
-        tags = "@FirstScenarios",
-        features = "src/test/scenarios/firstTest.feature"
+        tags = "@ThirdScenarios",
+        features = "src/test/scenarios/thirdTest.feature"
 )
-public class RunCucumberTest {
+public class TestRunner3 {
     // Tidak ada implementasi tambahan yang diperlukan
 }
