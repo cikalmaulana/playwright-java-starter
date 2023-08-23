@@ -32,13 +32,13 @@ pipeline {
                 script {
                     switch (params.WHICH_FEATURE) {
                         case 'firstTest':
-                            bat 'mvn clean test -Dtest=TestRunner1'
+                            bat 'mvn clean test -Dtest=TestRunner1 -Dcucumber.filter.tags="@FirstScenarios'
                             break
                         case 'secondTest':
-                            bat 'mvn clean test -Dtest=TestRunner2'
+                            bat 'mvn clean test -Dtest=TestRunner2 -Dcucumber.filter.tags="@SecondScenarios'
                             break
                         case 'thirdTest':
-                            bat 'mvn clean test -Dtest=TestRunner3'
+                            bat 'mvn clean test -Dtest=TestRunner3 -Dcucumber.filter.tags="@ThirdScenarios'
                             break
                         default:
                             echo "Invalid choice"
