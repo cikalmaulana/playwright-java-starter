@@ -1,4 +1,4 @@
-Feature: The test of opening google
+Feature: The test of opening google (secondTest)
 
 @SecondScenarios
 Scenario: Try to opening google on chrome
