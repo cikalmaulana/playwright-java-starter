@@ -30,23 +30,30 @@ pipeline {
                     def workspacePath = pwd() // Mendapatkan jalur direktori kerja Jenkins
                     def selectedFeature = params.WHICH_FEATURE
                     echo "Selected feature: ${selectedFeature}"
-                    switch (params.WHICH_FEATURE) {
+
+                    def runnerValue = ""
+                    switch (selectedFeature) {
                         case 'firstTest':
-                            bat "\"C:\\Program Files\\apache-maven-3.8.8\\bin\\mvn\" clean test -Dtest=runner.TestRunner1 -Dcucumber.filter.tags=@FirstScenarios"
+                            runnerValue = "TestRunner1"
                             break
                         case 'secondTest':
-                            bat "\"C:\\Program Files\\apache-maven-3.8.8\\bin\\mvn\" clean test -Dtest=runner.TestRunner2 -Dcucumber.filter.tags=@SecondScenarios"
+                            runnerValue = "TestRunner2"
                             break
                         case 'thirdTest':
-                            bat "\"C:\\Program Files\\apache-maven-3.8.8\\bin\\mvn\" clean test -Dtest=runner.TestRunner3 -Dcucumber.filter.tags=@ThirdScenarios"
+                            runnerValue = "TestRunner3"
                             break
                         default:
                             echo "Invalid choice"
                             break
                     }
+
+                    if (runnerValue) {
+                        bat "${workspacePath}\\mvn clean test -Drunner.include=${runnerValue}"
+                    }
                 }
             }
         }
+
 
         stage('Generate Reports') {
             steps {
