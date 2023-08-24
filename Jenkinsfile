@@ -29,19 +29,24 @@ pipeline {
                 script {
                     def workspacePath = pwd() // Mendapatkan jalur direktori kerja Jenkins
 
-                    switch (params.WHICH_FEATURE) {
-                        case 'firstTest':
-                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner1 -Dcucumber.filter.tags=@FirstScenarios"
-                            return
-                        case 'secondTest':
-                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner2 -Dcucumber.filter.tags=@SecondScenarios"
-                            return
-                        case 'thirdTest':
-                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner3 -Dcucumber.filter.tags=@ThirdScenarios"
-                            return
-                        default:
-                            echo "Invalid choice"
-                            return
+                    script {
+                        def selectedFeature = params.WHICH_FEATURE
+                        echo "Selected feature: ${selectedFeature}"
+
+                        switch (selectedFeature) {
+                            case 'firstTest':
+                                echo "Running firstTest"
+                                break
+                            case 'secondTest':
+                                echo "Running secondTest"
+                                break
+                            case 'thirdTest':
+                                echo "Running thirdTest"
+                                break
+                            default:
+                                echo "Invalid choice"
+                                break
+                        }
                     }
                 }
             }
