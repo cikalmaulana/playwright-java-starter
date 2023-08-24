@@ -28,15 +28,15 @@ pipeline {
             steps {
                 script {
                     def workspacePath = pwd() // Mendapatkan jalur direktori kerja Jenkins
-                    echo "$pparameters.WHICH_FEATURE"
-                    switch (parameters.WHICH_FEATURE) {
-                        case 'firstTest':
+
+                    switch (params.WHICH_FEATURE) {
+                        case 'firstTest1':
                             bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner1 -Dcucumber.filter.tags=@FirstScenarios"
                             break
-                        case 'secondTest':
+                        case 'secondTest2':
                             bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner2 -Dcucumber.filter.tags=@SecondScenarios"
                             break
-                        case 'thirdTest':
+                        case 'thirdTest3':
                             bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner3 -Dcucumber.filter.tags=@ThirdScenarios"
                             break
                         default:
