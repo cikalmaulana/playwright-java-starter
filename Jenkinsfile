@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    parameters {
+    params {
         string(name: 'KEYWORDS_PARAM', description: 'Comma-separated list of keywords')
         string(name: 'IS_IMAGE_PARAM', description: 'Whether to use images')
         choice(name: 'WHICH_FEATURE', choices: ['firstTest', 'secondTest', 'thirdTest'], description: 'Which Feature to Run')
