@@ -26,19 +26,18 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                // Menampilkan PATH sebelum menjalankan perintah mvn
-                bat 'echo $PATH'
-
                 script {
+                    def workspacePath = pwd() // Mendapatkan jalur direktori kerja Jenkins
+
                     switch (params.WHICH_FEATURE) {
                         case 'firstTest':
-                            bat 'mvn clean test -Dtest=TestRunner1 -Dcucumber.options="--tags @FirstScenarios"'
+                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner1 -Dcucumber.filter.tags=@FirstScenarios"
                             break
                         case 'secondTest':
-                            bat 'mvn clean test -Dtest=TestRunner2 -Dcucumber.options="--tags @SecondScenarios"'
+                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner2 -Dcucumber.filter.tags=@SecondScenarios"
                             break
                         case 'thirdTest':
-                            bat 'mvn clean test -Dtest=TestRunner3 -Dcucumber.options="--tags @ThirdScenarios"'
+                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner3 -Dcucumber.filter.tags=@ThirdScenarios"
                             break
                         default:
                             echo "Invalid choice"
