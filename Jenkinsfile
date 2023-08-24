@@ -32,13 +32,13 @@ pipeline {
                     echo "Selected feature: ${selectedFeature}"
                     switch (params.WHICH_FEATURE) {
                         case 'firstTest':
-                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner1 -Dcucumber.filter.tags=@FirstScenarios"
+                            bat "\"C:\\Program Files\\apache-maven-3.8.8\\bin\\mvn\" clean test -Dtest=runner.TestRunner1 -Dcucumber.filter.tags=@FirstScenarios"
                             break
                         case 'secondTest':
-                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner2 -Dcucumber.filter.tags=@SecondScenarios"
+                            bat "\"C:\\Program Files\\apache-maven-3.8.8\\bin\\mvn\" clean test -Dtest=runner.TestRunner2 -Dcucumber.filter.tags=@SecondScenarios"
                             break
                         case 'thirdTest':
-                            bat "${workspacePath}\\mvn clean test -Dtest=runner.TestRunner3 -Dcucumber.filter.tags=@ThirdScenarios"
+                            bat "\"C:\\Program Files\\apache-maven-3.8.8\\bin\\mvn\" clean test -Dtest=runner.TestRunner3 -Dcucumber.filter.tags=@ThirdScenarios"
                             break
                         default:
                             echo "Invalid choice"
