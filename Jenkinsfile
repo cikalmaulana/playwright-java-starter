@@ -8,14 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Mengambil kode dari repositori GitHub
-                checkout([$class: 'GitSCM',
-                          branches: [[name: '*/main']], // Ganti "main" dengan nama cabang yang benar
-                          userRemoteConfigs: [[url: 'https://github.com/cikalmaulana/playwright-java-starter.git']]])
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
