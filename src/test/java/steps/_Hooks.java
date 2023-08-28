@@ -36,6 +36,7 @@ public class _Hooks extends TestBase {
     public void navigateBrowser() throws IOException{
         String url = TestDataContext.getEnvironmentUrl("SIT");
         page.navigate(url);
-        page.waitForTimeout(2000);
+        page.waitForTimeout(5000);
+        log.info("Page title = " + page.title().toLowerCase());
     }
 }

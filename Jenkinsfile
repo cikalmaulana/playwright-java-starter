@@ -47,16 +47,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Generate Reports') {
-            steps {
-                script {
-                    step([$class: 'CucumberReportsPublisher',
-                          jsonReportDirectory: '**/*.json',
-                          ignoredFailedTests: true,
-                          outputDirectory: 'target/cucumber-reports'])
-                }
-            }
-        }
     }
 }
